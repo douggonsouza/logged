@@ -10,6 +10,7 @@ class ComposerStaticInit600642fd9b5945b339a2d25ac27b849e
         'd' => 
         array (
             'douggonsouza\\propertys\\' => 23,
+            'douggonsouza\\mvc\\' => 17,
             'douggonsouza\\logged\\' => 20,
         ),
     );
@@ -18,6 +19,10 @@ class ComposerStaticInit600642fd9b5945b339a2d25ac27b849e
         'douggonsouza\\propertys\\' => 
         array (
             0 => __DIR__ . '/..' . '/douggonsouza/propertys/src',
+        ),
+        'douggonsouza\\mvc\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/douggonsouza/mvc/src',
         ),
         'douggonsouza\\logged\\' => 
         array (
@@ -28,6 +33,24 @@ class ComposerStaticInit600642fd9b5945b339a2d25ac27b849e
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'douggonsouza\\logged\\logged' => __DIR__ . '/../..' . '/src/logged.php',
+        'douggonsouza\\mvc\\control\\act' => __DIR__ . '/..' . '/douggonsouza/mvc/src/control/act.php',
+        'douggonsouza\\mvc\\control\\actInterface' => __DIR__ . '/..' . '/douggonsouza/mvc/src/control/actInterface.php',
+        'douggonsouza\\mvc\\control\\exiting' => __DIR__ . '/..' . '/douggonsouza/mvc/src/control/exiting.php',
+        'douggonsouza\\mvc\\model\\connection\\conn' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/connection/conn.php',
+        'douggonsouza\\mvc\\model\\model' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/model.php',
+        'douggonsouza\\mvc\\model\\modelInterface' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/modelInterface.php',
+        'douggonsouza\\mvc\\model\\resource\\resource' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/resource/resource.php',
+        'douggonsouza\\mvc\\model\\resource\\resourceInterface' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/resource/resourceInterface.php',
+        'douggonsouza\\mvc\\model\\utils' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/utils.php',
+        'douggonsouza\\mvc\\model\\validate\\isdatetime' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/validate/isdatetime.php',
+        'douggonsouza\\mvc\\model\\validate\\isemail' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/validate/isemail.php',
+        'douggonsouza\\mvc\\model\\validate\\isnumber' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/validate/isnumber.php',
+        'douggonsouza\\mvc\\model\\validate\\isstring' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/validate/isstring.php',
+        'douggonsouza\\mvc\\model\\validate\\limit' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/validate/limit.php',
+        'douggonsouza\\mvc\\model\\validate\\notnull' => __DIR__ . '/..' . '/douggonsouza/mvc/src/model/validate/notnull.php',
+        'douggonsouza\\mvc\\view\\display' => __DIR__ . '/..' . '/douggonsouza/mvc/src/view/display.php',
+        'douggonsouza\\mvc\\view\\mimes' => __DIR__ . '/..' . '/douggonsouza/mvc/src/view/mimes.php',
+        'douggonsouza\\mvc\\view\\view' => __DIR__ . '/..' . '/douggonsouza/mvc/src/view/view.php',
         'douggonsouza\\propertys\\propertys' => __DIR__ . '/..' . '/douggonsouza/propertys/src/propertys.php',
         'douggonsouza\\propertys\\propertysInterface' => __DIR__ . '/..' . '/douggonsouza/propertys/src/propertysInterface.php',
     );

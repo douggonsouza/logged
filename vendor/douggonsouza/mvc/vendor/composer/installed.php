@@ -1,30 +1,21 @@
 <?php return array(
     'root' => array(
-        'name' => 'douggonsouza/logged',
+        'name' => 'douggonsouza/mvc',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '95e3b55db98073dd4c3ef71e7803eaf63cfada62',
+        'reference' => '060e25d9682475ef6ae1346ac3123e66b3a7ff47',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'douggonsouza/logged' => array(
+        'douggonsouza/mvc' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '95e3b55db98073dd4c3ef71e7803eaf63cfada62',
+            'reference' => '060e25d9682475ef6ae1346ac3123e66b3a7ff47',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
-            'aliases' => array(),
-            'dev_requirement' => false,
-        ),
-        'douggonsouza/mvc' => array(
-            'pretty_version' => 'v1.0.6',
-            'version' => '1.0.6.0',
-            'reference' => 'e017cc704f329d2a2c6a212384b701834fdaff54',
-            'type' => 'library',
-            'install_path' => __DIR__ . '/../douggonsouza/mvc',
             'aliases' => array(),
             'dev_requirement' => false,
         ),

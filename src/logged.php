@@ -84,5 +84,20 @@ abstract class logged
 
         return false;
     }
+    
+    /**
+     * getUserId - Expõe o Id do usuário logado
+     *
+     * @return int|null
+     */
+    static public function getId()
+    {
+        if(self::is()){
+            $login = (array) $_SESSION[self::NAME_SESSION];
+            return (int) $login['user_id'];
+        }
+
+        return null;
+    }
 }
 
