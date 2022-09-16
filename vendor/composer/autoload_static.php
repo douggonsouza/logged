@@ -33,6 +33,7 @@ class ComposerStaticInit600642fd9b5945b339a2d25ac27b849e
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'douggonsouza\\logged\\logged' => __DIR__ . '/../..' . '/src/logged.php',
+        'douggonsouza\\logged\\models\\user' => __DIR__ . '/../..' . '/src/models/user.php',
         'douggonsouza\\mvc\\control\\act' => __DIR__ . '/..' . '/douggonsouza/mvc/src/control/act.php',
         'douggonsouza\\mvc\\control\\actInterface' => __DIR__ . '/..' . '/douggonsouza/mvc/src/control/actInterface.php',
         'douggonsouza\\mvc\\control\\exiting' => __DIR__ . '/..' . '/douggonsouza/mvc/src/control/exiting.php',
