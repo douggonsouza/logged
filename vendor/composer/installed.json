@@ -2,23 +2,23 @@
     "packages": [
         {
             "name": "douggonsouza/mvc",
-            "version": "v1.0.6",
-            "version_normalized": "1.0.6.0",
+            "version": "v1.0.7",
+            "version_normalized": "1.0.7.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/douggonsouza/mvc.git",
-                "reference": "e017cc704f329d2a2c6a212384b701834fdaff54"
+                "reference": "b90659dc7616885cd1a89e2e9d798f92f1e6b1f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/douggonsouza/mvc/zipball/e017cc704f329d2a2c6a212384b701834fdaff54",
-                "reference": "e017cc704f329d2a2c6a212384b701834fdaff54",
+                "url": "https://api.github.com/repos/douggonsouza/mvc/zipball/b90659dc7616885cd1a89e2e9d798f92f1e6b1f8",
+                "reference": "b90659dc7616885cd1a89e2e9d798f92f1e6b1f8",
                 "shasum": ""
             },
             "require": {
                 "douggonsouza/propertys": "^1.0.0"
             },
-            "time": "2022-08-16T10:28:19+00:00",
+            "time": "2022-09-16T23:54:11+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -39,26 +39,26 @@
             "description": "Processo de resposta tipo Model, View e Control",
             "support": {
                 "issues": "https://github.com/douggonsouza/mvc/issues",
-                "source": "https://github.com/douggonsouza/mvc/tree/v1.0.6"
+                "source": "https://github.com/douggonsouza/mvc/tree/v1.0.7"
             },
             "install-path": "../douggonsouza/mvc"
         },
         {
             "name": "douggonsouza/propertys",
-            "version": "v1.0.3",
-            "version_normalized": "1.0.3.0",
+            "version": "v1.0.4",
+            "version_normalized": "1.0.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/douggonsouza/propertys.git",
-                "reference": "be8f49f5311e5818e9d534cc45ba0786f8df3319"
+                "reference": "ebd7471bf7279f2e2520c6b7eadfcf6171ab47cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/douggonsouza/propertys/zipball/be8f49f5311e5818e9d534cc45ba0786f8df3319",
-                "reference": "be8f49f5311e5818e9d534cc45ba0786f8df3319",
+                "url": "https://api.github.com/repos/douggonsouza/propertys/zipball/ebd7471bf7279f2e2520c6b7eadfcf6171ab47cf",
+                "reference": "ebd7471bf7279f2e2520c6b7eadfcf6171ab47cf",
                 "shasum": ""
             },
-            "time": "2022-04-17T02:10:09+00:00",
+            "time": "2022-09-16T23:56:11+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -79,7 +79,7 @@
             "description": "Armazenagem das propriedades",
             "support": {
                 "issues": "https://github.com/douggonsouza/propertys/issues",
-                "source": "https://github.com/douggonsouza/propertys/tree/v1.0.3"
+                "source": "https://github.com/douggonsouza/propertys/tree/v1.0.4"
             },
             "install-path": "../douggonsouza/propertys"
         }
