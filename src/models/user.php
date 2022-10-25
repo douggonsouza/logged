@@ -3,9 +3,11 @@
 namespace douggonsouza\logged\models;
 
 use douggonsouza\mvc\model\model;
+use douggonsouza\mvc\model\modelInterface;
 use douggonsouza\propertys\propertys;
+use douggonsouza\propertys\propertysInterface;
 
-class user extends model
+class user extends model implements modelInterface
 {
     public $table = 'users';
     public $key   = 'user_id';
@@ -24,7 +26,7 @@ class user extends model
     /**
      * info - Expõe os dados a serem salvos de login na sessão
      *
-     * @return object
+     * @return propertysInterface
      */
     public function info()
     {
@@ -97,6 +99,22 @@ class user extends model
         return null;
     }
 
+
+    /**
+     * Get the value of table
+     */ 
+    public function getTable()
+    {
+        return $this->table;
+    }
+
+    /**
+     * Get the value of key
+     */ 
+    public function getKey()
+    {
+        return $this->key;
+    }
 }
 
 ?>

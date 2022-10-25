@@ -4,10 +4,11 @@ namespace douggonsouza\mvc\model\resource;
 
 use douggonsouza\mvc\model\connection\conn;
 use douggonsouza\mvc\model\resource\resourceInterface;
+use douggonsouza\mvc\model\connection\connInterface;
 
-class resource implements resourceInterface
+class resource extends conn implements resourceInterface
 {
-    protected static $conn;
+    // protected static $conn;
     protected $data;
     protected $resource;
     protected $error;
@@ -17,7 +18,46 @@ class resource implements resourceInterface
 
     public function __construct()
     {
-        self::setConn(conn::getConnection());
+        // self::setConn($conn::getConnection());
+    }
+  
+    /**
+     * Method query
+     *
+     * @param string $sql [explicite description]
+     *
+     * @return void
+     */
+    public function query(string $sql)
+    {
+        if(!isset($sql) || empty($sql) || !self::getConnection()){
+            return false;
+        }
+        
+        try{
+            mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 0;');
+
+            $resource = mysqli_query(self::getConnection(), (string) $sql);
+            if(!is_bool($resource)){
+                $this->setResource($resource);
+                if(!$this->next()){
+                    $this->setError(self::getConnection()->error);
+                    return false;
+                }
+            }
+            
+            if(!empty(self::getConnection()->error)){
+                $this->setError(self::getConnection()->error);
+                return false;
+            }
+
+            mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 1;');
+
+            return true;
+        }
+        catch(\Exception $e){
+            return false;
+        }
     }
 
     /**
@@ -59,73 +99,97 @@ class resource implements resourceInterface
 
         return mysqli_fetch_all($this->getResource(), MYSQLI_ASSOC);
     }
+    
+    /**
+     * Method asAllArray
+     *
+     * @return void
+     */
+    public function asAllArray()
+    {
+        if(empty($this->getResource())){
+            return array();
+        }
+
+        return mysqli_fetch_all($this->getResource(), MYSQLI_ASSOC);
+    }
 
     /**
-     * Executa uma instrução MySQL
+     * Inicia transação
      * 
+     * @return boolean
      */
-    public function query(string $sql)
+    static public function begin()
     {
-        if(!isset($sql) || empty($sql)){
-            return false;
-        }
 
-        if(!self::getConn()){
-            return false;
-        }
-        
-        try{
-            self::getConn()->query('SET SQL_SAFE_UPDATES = 0;');
-            $this->setResource(self::getConn()->query((string) $sql));
-            if(!empty(self::getConn()->error)){
-                $this->setError(self::getConn()->error);
-                return false;
-            }
-            self::getConn()->query((string) 'SET SQL_SAFE_UPDATES = 1;');
-            
-            if(!$this->next()){
-                $this->setError(self::getConn()->error);
-                return false;
-            }
-            return true;
-        }
-        catch(\Exception $e){
-            return false;
-        }
+		// inicia sessão de transação
+		mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 0;');
+        mysqli_begin_transaction(self::getConnection());
+		mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 1;');
+		
+        return true;
+	}
+
+    /**
+     * Faz commit na transação iniciada
+     * @return boolean
+     */
+    static public function commit()
+    {
+		// confirma sessão de transação
+		mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 0;');
+        mysqli_commit(self::getConnection());
+		mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 1;');
+		
+        return true;
+    }
+
+    /**
+     * Faz rollback na transação iniciada
+     * @return boolean
+     */
+    static public function rollback()
+    {
+		// desfaz sessão de transação
+		mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 0;');
+        mysqli_rollback(self::getConnection());
+		mysqli_query(self::getConnection(), 'SET SQL_SAFE_UPDATES = 1;');
+		
+        return true;
     }
 
     /**
      * Executa uma instrução MySQL
      * 
      */
-    public function execute(string $sql)
-    {
-        if(!isset($sql) || empty($sql)){
-            return false;
-        }
+    // public function execute(string $sql)
+    // {
+    //     if(!isset($sql) || empty($sql)){
+    //         return false;
+    //     }
 
-        if(!self::getConn()){
-            return false;
-        }
+    //     if(!self::getConn()){
+    //         return false;
+    //     }
         
-        try{
-            self::getConn()->query('SET SQL_SAFE_UPDATES = 0;');
-            $resource = self::getConn()->query((string) $sql);
-            if(!empty(self::getConn()->error)){
-                $this->setError(self::getConn()->error);
-                return false;
-            }
-            self::getConn()->query((string) 'SET SQL_SAFE_UPDATES = 1;');
+    //     try{
+    //         self::getConn()->query('SET SQL_SAFE_UPDATES = 0;');
+    //         $resource = self::getConn()->query((string) $sql);
+    //         if(!empty(self::getConn()->error)){
+    //             $this->setError(self::getConn()->error);
+    //             return false;
+    //         }
+    //         self::getConn()->query((string) 'SET SQL_SAFE_UPDATES = 1;');
 
-            if(is_bool($resource)){
-                return $resource;
-            }
-            return mysqli_fetch_all($resource, MYSQLI_ASSOC);
-        }
-        catch(\Exception $e){
-            return false;
-        }
-    }
+    //         if(is_bool($resource)){
+    //             return $resource;
+    //         }
+    //         return mysqli_fetch_all($resource, MYSQLI_ASSOC);
+    //     }
+    //     catch(\Exception $e){
+    //         return false;
+    //     }
+    // }
 
     /**
      * Busca entre os registros
@@ -134,29 +198,24 @@ class resource implements resourceInterface
      * @param array  $search
      * @return bool
      */
-    public function search(string $table, array $search)
-    {
-        if(!isset($table) || empty($table)){
-            $this->setError('Não é permitido table nulo.');
-            return false;
-        }
+    // public function search(string $table, array $search)
+    // {
+    //     if(!isset($table) || empty($table) || !isset($search) || empty($search)){
+    //         $this->setError('Não é permitido parâmetro nulo.');
+    //         return false;
+    //     }
 
-        if(!isset($search) || empty($search)){
-            $this->setError('Não é permitido search nulo.');
-            return false;
-        }
+    //     if(!$this->query(sprintf(
+    //         "SELECT * FROM %1\$s WHERE %2\$s;",
+    //         $table,
+    //         implode(' AND ', $search)
+    //     ))){
+    //         $this->setError(self::getConnection()->error);
+    //         return false;
+    //     }
 
-        if(!$this->query(sprintf(
-            "SELECT * FROM %1\$s WHERE %2\$s;",
-            $table,
-            implode(' AND ', $search)
-        ))){
-            $this->setError(self::getConn()->error);
-            return false;
-        }
-
-        return true;
-    }
+    //     return true;
+    // }
 
     /**
      * Busca entre os registros da tabela ou retorna todos
@@ -165,20 +224,20 @@ class resource implements resourceInterface
      * @param array  $search
      * @return bool
      */
-    public function seek(string $sql)
-    {
-        if(!isset($sql) || empty($sql)){
-            $this->setError('Não é permitido Sql nulo.');
-            return false;
-        }
+    // public function seek(string $sql)
+    // {
+    //     if(!isset($sql) || empty($sql)){
+    //         $this->setError('Não é permitido Sql nulo.');
+    //         return false;
+    //     }
 
-        if(!$this->query($sql)){
-            $this->setError(self::getConn()->error);
-            return false;
-        }
+    //     if(!$this->query($sql)){
+    //         $this->setError(self::getConn()->error);
+    //         return false;
+    //     }
 
-        return true;
-    }
+    //     return true;
+    // }
 
     /**
      * Atualiza a propriedade data
@@ -283,7 +342,7 @@ class resource implements resourceInterface
      *
      * @return  self
      */ 
-    public static function setConn($conn)
+    public static function setConn(connInterface $conn)
     {
         if(isset($conn) && !empty($conn)){
             self::$conn = $conn;
@@ -401,7 +460,7 @@ class resource implements resourceInterface
      *
      * @return  self
      */ 
-    public function setResource($resource)
+    protected function setResource($resource)
     {
         $this->resource = null;
         if(isset($resource) && !empty($resource) && !is_bool($resource)){

@@ -12,10 +12,10 @@ abstract class logged
     /**
      * in - Inclui infos no usuário da sessão
      *
-     * @param  mixed $info
+     * @param  propertysInterface $info
      * @return void
      */
-    static public function in(propertysInterface $info)
+    public static function in(propertysInterface $info)
     {
         // limpa o usuário da sessão
         if(isset($_SESSION[self::NAME_SESSION])){

@@ -7,20 +7,99 @@
     "content-hash": "1968cf79a14364108c61bd1cb77d215a",
     "packages": [
         {
-            "name": "douggonsouza/mvc",
-            "version": "v1.0.7",
+            "name": "douggonsouza/benchmarck",
+            "version": "v1.0.17",
             "source": {
                 "type": "git",
-                "url": "https://github.com/douggonsouza/mvc.git",
-                "reference": "b90659dc7616885cd1a89e2e9d798f92f1e6b1f8"
+                "url": "https://github.com/douggonsouza/benchmarck.git",
+                "reference": "943b98ba664269c888ad128a3ac5077717038259"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/douggonsouza/mvc/zipball/b90659dc7616885cd1a89e2e9d798f92f1e6b1f8",
-                "reference": "b90659dc7616885cd1a89e2e9d798f92f1e6b1f8",
+                "url": "https://api.github.com/repos/douggonsouza/benchmarck/zipball/943b98ba664269c888ad128a3ac5077717038259",
+                "reference": "943b98ba664269c888ad128a3ac5077717038259",
                 "shasum": ""
             },
             "require": {
+                "douggonsouza/language": "^1.0.0",
+                "douggonsouza/propertys": "^1.0.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "douggonsouza\\benchmarck\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Douglas Gonçalves de Souza",
+                    "email": "douggonsouza@gmail.com"
+                }
+            ],
+            "description": "Páginas de referência",
+            "support": {
+                "issues": "https://github.com/douggonsouza/benchmarck/issues",
+                "source": "https://github.com/douggonsouza/benchmarck/tree/v1.0.17"
+            },
+            "time": "2022-09-17T00:05:58+00:00"
+        },
+        {
+            "name": "douggonsouza/language",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/douggonsouza/language.git",
+                "reference": "b63647bc60d5a9cf13348bfcd17839b938b08120"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/douggonsouza/language/zipball/b63647bc60d5a9cf13348bfcd17839b938b08120",
+                "reference": "b63647bc60d5a9cf13348bfcd17839b938b08120",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "douggonsouza\\language\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Douglas Gonçalves de Souza",
+                    "email": "douggonsouza@gmail.com"
+                }
+            ],
+            "description": "Expõe o valor da etiqueta para uma linguagem",
+            "support": {
+                "issues": "https://github.com/douggonsouza/language/issues",
+                "source": "https://github.com/douggonsouza/language/tree/v1.0.4"
+            },
+            "time": "2022-08-10T12:30:58+00:00"
+        },
+        {
+            "name": "douggonsouza/mvc",
+            "version": "v1.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/douggonsouza/mvc.git",
+                "reference": "889ecab5c3795caeb0ff179c493a94addf13d1fa"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/douggonsouza/mvc/zipball/889ecab5c3795caeb0ff179c493a94addf13d1fa",
+                "reference": "889ecab5c3795caeb0ff179c493a94addf13d1fa",
+                "shasum": ""
+            },
+            "require": {
+                "douggonsouza/benchmarck": "^1.0.0",
                 "douggonsouza/propertys": "^1.0.0"
             },
             "type": "library",
@@ -42,9 +121,9 @@
             "description": "Processo de resposta tipo Model, View e Control",
             "support": {
                 "issues": "https://github.com/douggonsouza/mvc/issues",
-                "source": "https://github.com/douggonsouza/mvc/tree/v1.0.7"
+                "source": "https://github.com/douggonsouza/mvc/tree/v1.0.9"
             },
-            "time": "2022-09-16T23:54:11+00:00"
+            "time": "2022-10-25T11:31:30+00:00"
         },
         {
             "name": "douggonsouza/propertys",
