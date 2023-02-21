@@ -39,7 +39,8 @@ class user extends model implements modelInterface
             array(
                 'user_id' => $this->getField('user_id'),
                 'name' => $this->getField('name'),
-                'email' => $this->getField('email')
+                'email' => $this->getField('email'),
+                'paper_id' => $this->getField('paper_id')
             )
         );
     }
@@ -52,33 +53,29 @@ class user extends model implements modelInterface
     public function perfil(int $userId = null)
     {
         if(isset($userId) || !empty($userId)){
-            $user = $this->search(array('user_id' => $userId));
-            return new propertys(
-                array(
+            $user = new user($userId);
+            return array(
                     'user_id' =>$user->getField('user_id'),
-                    'access_id' => $user->getField('access_id'),
+                    'paper_id' => $user->getField('paper_id'),
                     'name' => $user->getField('name'),
                     'email' => $user->getField('email'),
                     'document' => $user->getField('document'),
                     'birthday' => $user->getField('birthday'),
                     'school' => $user->getField('school'),
                     'office' => $user->getField('office')
-                )
-            );;
+            );
         }
 
         if($this->isModel()){
-            return new propertys(
-                array(
+            return array(
                     'user_id' => $this->getField('user_id'),
-                    'access_id' => $this->getField('access_id'),
+                    'paper_id' => $this->getField('paper_id'),
                     'name' => $this->getField('name'),
                     'email' => $this->getField('email'),
                     'document' => $this->getField('document'),
                     'birthday' => $this->getField('birthday'),
                     'school' => $this->getField('school'),
                     'office' => $this->getField('office')
-                )
             );
         }
 
