@@ -3,7 +3,7 @@
         'name' => 'douggonsouza/logged',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '3c5bdefc77c423a7d1a1161bfe3a4753dd2ad5ea',
+        'reference' => '461202c7a647fd1ab9d477aac63e735e2355c4c6',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'douggonsouza/logged' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '3c5bdefc77c423a7d1a1161bfe3a4753dd2ad5ea',
+            'reference' => '461202c7a647fd1ab9d477aac63e735e2355c4c6',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
